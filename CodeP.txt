@@ -1,0 +1,36 @@
+// Define the TreeNode class
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+/**
+ * Function to traverse a binary tree in-order
+ * 
+ * @param {TreeNode} node - The root node of the binary tree
+ */
+function TraverseBinaryTree(node) {
+    if (node != null) {
+        // Traverse the left subtree
+        TraverseBinaryTree(node.left);
+        
+        // Process the current node
+        console.log("Node value: " + node.value);
+        
+        // Traverse the right subtree
+        TraverseBinaryTree(node.right);
+    }
+}
+
+// Create a binary tree
+let root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+
+// Traverse the binary tree
+TraverseBinaryTree(root);
